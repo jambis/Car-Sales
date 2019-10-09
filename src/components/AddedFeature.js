@@ -1,11 +1,13 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { removeFeature } from "../actions";
 
 const AddedFeature = props => {
+  const dispatch = useDispatch();
+
   const handleClick = () => {
-    props.removeFeature(props.feature);
+    dispatch(removeFeature(props.feature));
   };
   return (
     <li>
@@ -18,7 +20,8 @@ const AddedFeature = props => {
   );
 };
 
-export default connect(
-  null,
-  { removeFeature }
-)(AddedFeature);
+// export default connect(
+//   null,
+//   { removeFeature }
+// )(AddedFeature);
+export default AddedFeature;
